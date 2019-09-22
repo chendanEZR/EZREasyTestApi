@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- 命名空间mapper,如果有多个mapper文件，这个必须唯一 -->
+<!--<mapper namespace="model">-->
+
+
+    <!--获取用户信息-->
+  <!--  <select id="getCaseId" parameterType="model.CommonModel" resultType="model.CommonModel">
+       --> <!-- SQL语句 -->
+    <!--    SELECT * FROM OmniChannelApiAutoTest_test WHERE id =#{getCaseId};
+    </select>
+
+</mapper>
+-->
+<mapper namespace="mapper.CommonMapper">
+    <select id="getCommonModelId"  resultType="models.CommonModel">
+       SELECT * FROM ApiComparison WHERE id =#{getComparisonModelId};
+    </select>
+    <update id="updateCommonModelId" parameterType="models.CommonModel">
+        UPDATE ApiComparison
+        <trim prefix="SET" suffixOverrides=",">
+            <if test="id !=null" >id=#{id},</if>
+            <if test="CaseName !=null">CaseName=#{CaseName},</if>
+            <if test="ApiName !=null">ApiName=#{ApiName},</if>
+            <if test="OldURL !=null">OldURL=#{OldURL},</if>
+            <if test="NewURL !=null">NewURL=#{NewURL},</if>
+            <if test="RequestMethod !=null">RequestMethod=#{RequestMethod},</if>
+            <if test="RequestParam !=null">RequestParam=#{RequestParam},</if>
+            <if test="ReturnedValueOld !=null">ReturnedValueOld=#{ReturnedValueOld},</if>
+            <if test="ReturnedValueNew !=null">ReturnedValueNew=#{ReturnedValueNew},</if>
+            <if test="Result !=null">Result=#{Result},</if>
+            <if test="ResultValue !=null">ResultValue=#{ResultValue},</if>
+
+        </trim>
+        WHERE id=#{id}
+    </update>
+    <select id="getAll"  resultType="Integer">
+        SELECT id FROM ApiComparison ;
+    </select>
+
+
+</mapper>
