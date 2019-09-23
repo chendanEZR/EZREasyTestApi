@@ -15,28 +15,25 @@
 -->
 <mapper namespace="mapper.CommonMapper">
     <select id="getCommonModelId"  resultType="models.CommonModel">
-       SELECT * FROM ApiComparison WHERE id =#{getComparisonModelId};
+       SELECT * FROM mall_api WHERE id =#{getCommonModelId};
     </select>
     <update id="updateCommonModelId" parameterType="models.CommonModel">
-        UPDATE ApiComparison
+        UPDATE mall_api
         <trim prefix="SET" suffixOverrides=",">
             <if test="id !=null" >id=#{id},</if>
             <if test="CaseName !=null">CaseName=#{CaseName},</if>
-            <if test="ApiName !=null">ApiName=#{ApiName},</if>
-            <if test="OldURL !=null">OldURL=#{OldURL},</if>
-            <if test="NewURL !=null">NewURL=#{NewURL},</if>
+            <if test="modules !=null">modules=#{modules},</if>
+            <if test="TestURL !=null">TestURL=#{TestURL},</if>
+            <if test="TestURI !=null">TestURI=#{TestURI},</if>
             <if test="RequestMethod !=null">RequestMethod=#{RequestMethod},</if>
-            <if test="RequestParam !=null">RequestParam=#{RequestParam},</if>
-            <if test="ReturnedValueOld !=null">ReturnedValueOld=#{ReturnedValueOld},</if>
-            <if test="ReturnedValueNew !=null">ReturnedValueNew=#{ReturnedValueNew},</if>
-            <if test="Result !=null">Result=#{Result},</if>
-            <if test="ResultValue !=null">ResultValue=#{ResultValue},</if>
+            <if test="RequestParams !=null">RequestParam=#{RequestParams},</if>
+
 
         </trim>
         WHERE id=#{id}
     </update>
     <select id="getAll"  resultType="Integer">
-        SELECT id FROM ApiComparison ;
+        SELECT id FROM mall_api ;
     </select>
 
 
