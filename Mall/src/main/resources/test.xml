@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<suite name="满减">
+    <test name="login">
+         <classes>
+             <class name="cases.logins.Login"></class>
+
+         </classes>
+    </test>
+    <test name="fullRedutions">
+        <classes>
+
+            <class name="cases.fullReductions.FullReductions"></class>
+        </classes>
+    </test>
+</suite>

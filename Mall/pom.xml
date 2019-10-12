@@ -112,6 +112,11 @@
                 <version>2.22.1</version>
 
                 <configuration>
+                    <suiteXmlFiles>
+                        <suiteXmlFile>
+                            ./src/main/resources/test.xml
+                        </suiteXmlFile>
+                    </suiteXmlFiles>
 
                     <argLine>
                         -javaagent:"${settings.localRepository}/org/aspectj/aspectjweaver/${aspectj.version}/aspectjweaver-${aspectj.version}.jar"
@@ -139,6 +144,7 @@
 
     <reporting>
         <excludeDefaults>true</excludeDefaults>
+
         <plugins>
             <plugin>
 
@@ -152,6 +158,8 @@
             </plugin>
         </plugins>
     </reporting>
+
+    <!--打包-->
 
 
 </project>
