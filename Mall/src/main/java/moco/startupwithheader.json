@@ -1,0 +1,22 @@
+[
+  {
+    "description":"这是 一个带header信息的post请求",
+    "request":{
+      "uri":"/post/with/headers",
+      "method":"post",
+      "headers":{
+        "content-type":"application/json"
+      },
+      "json":{
+        "name":"ezp",
+        "pwd":"123456"
+      }
+    },
+    "response":{
+      "status":200,
+      "json":{
+        "ezp":"success"
+      }
+    }
+  }
+]

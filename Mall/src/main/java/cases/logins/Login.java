@@ -34,6 +34,7 @@ public class Login {
 
         JSONObject jsonResult = CaseRequestInfo.getRequestInfo(1);
         String testURL =jsonResult.getString("testURL");
+       // System.out.println(testURL);
         Response response =given().headers(headers).when().get(testURL).then().statusCode(200).extract().response();
 
         Map<String,String> cookie = response.getCookies();
@@ -147,7 +148,7 @@ public class Login {
         JSONObject jsonResult = CaseRequestInfo.getRequestInfo(4);
         String testURL =jsonResult.getString("testURL");
         String eee=jsonResult.getString("requestParams");
-        System.out.println(eee);
+        //System.out.println(eee);
         JSONObject requestParams = JSON.parseObject(eee);
         Map<String,?> params = JSON.parseObject(requestParams.toJSONString());
 
@@ -175,7 +176,7 @@ public class Login {
         Cookie cookie3 = new Cookie.Builder("login_sid",value3).build();
 
         Cookies cookies = new Cookies(cookie1,cookie2,cookie3);
-        System.out.println(cookies);
+       // System.out.println(cookies);
 
         JSONObject jsonResult = CaseRequestInfo.getRequestInfo(5);
         String testURL =jsonResult.getString("testURL");
@@ -211,7 +212,7 @@ public class Login {
                 .response();
 
         Map<String,String> cookies4 = response.getCookies();
-        System.out.println(cookies4);
+      //  System.out.println(cookies4);
 //     for(String key:cookies4.keySet()){
 //         System.out.println(key+":"+cookies4.get(key));
 //     }

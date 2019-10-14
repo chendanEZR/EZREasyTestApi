@@ -24,12 +24,13 @@ public class FullReductions {
         Response response = CaseResponse.pcPosChangeActName(7,ActName);
         response.then().statusCode(200).body("Data",equalTo(true));
 
+
     }
 
     @Test(priority = 1)
     public void searchFullReduction(){
         Response response = CaseResponse.pcGetChangeActName(10,ActName);
-       // response.getBody().prettyPrint();
+        //response.getBody().prettyPrint();
         actId =response.then().statusCode(200).body("Data.PagedList[0].ActName",equalTo(ActName))
                 .extract().path("Data.PagedList[0].Id");
 
@@ -39,7 +40,7 @@ public class FullReductions {
 
         Response response = fullReduction.changefullReductionActId(8,actId);
 
-        response.getBody().prettyPrint();
+       // response.getBody().prettyPrint();
         response.then().statusCode(200).body("Data.IsDisabled",equalTo(false));
 
     }
@@ -55,7 +56,7 @@ public class FullReductions {
 
           respondBody(response.getBody().asString());
 
-          //response.then().statusCode(200).body("Result[0].ActValues", equalTo("满100元减99元"));
+          response.then().statusCode(200).body("Result[0].ActValues", equalTo("满100元减99元"));
         }
 
     }
